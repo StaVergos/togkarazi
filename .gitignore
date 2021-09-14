@@ -1,0 +1,6 @@
+Pipfile
+Pipfile.lock
+.env
+.idea
+default_config.py
+/migrations

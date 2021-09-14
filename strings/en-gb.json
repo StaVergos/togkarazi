@@ -1,0 +1,6 @@
+{
+    "user_invalid_credentials": "Invalid credentials!",
+
+    "user_registered": "Account created successfully, an email with an activation link has been sent to your email address, please check.",
+    "user_error_creating": "Internal server error. Failed to create user."
+}
