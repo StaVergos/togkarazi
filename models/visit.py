@@ -1,7 +1,7 @@
 from db import db
 
 
-class TaskModel(db.Model):
+class VisitModel(db.Model):
     __tablename__ = 'task'
 
     id = db.Column(db.Integer, primary_key=True)

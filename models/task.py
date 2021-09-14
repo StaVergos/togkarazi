@@ -1,7 +1,7 @@
 from db import db
 
 
-class CustomerModel(db.Model):
+class TaskModel(db.Model):
     __tablename__ = 'task'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -20,5 +20,5 @@ class CustomerModel(db.Model):
         db.session.commit()
 
     @classmethod
-    def find_by_name(cls, name: str) -> "UserModel":
+    def find_by_name(cls, name: str) -> "TaskModel":
         return cls.query.filter_by(name=name).all()
