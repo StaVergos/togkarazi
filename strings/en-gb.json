@@ -1,5 +1,7 @@
 {
     "user_invalid_credentials": "Invalid credentials!",
     "user_registered": "Account created successfully",
-    "user_error_creating": "Internal server error. Failed to create user."
+    "user_error_creating": "Internal server error. Failed to create user.",
+
+    "user_not_admin": "The user is not an admin",
 }

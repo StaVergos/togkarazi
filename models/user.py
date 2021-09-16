@@ -20,3 +20,9 @@ class UserModel(db.Model):
     @classmethod
     def find_by_username(cls, username: str) -> "UserModel":
         return cls.query.filter_by(username=username).first()
+
+    @classmethod
+    def is_admin(cls, username: str) -> "UserModel":
+        user = cls.query.filter_by(username=username).first()
+        if user["is_admin"]:
+            return user
