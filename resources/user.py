@@ -7,7 +7,6 @@ from flask_jwt_extended import create_access_token, create_refresh_token, get_jw
 import traceback
 
 from blocklist import BLOCKLIST
-from models import user
 
 from schemas.user import UserSchema
 from models.user import UserModel
@@ -27,7 +26,6 @@ class UserRegister(Resource):
             return {"message": gettext("user_registered")}, 201
         except:
             traceback.print_exc()
-            user.delete_from_db()
             return {"message": gettext("user_error_creating")}, 500
 
 
