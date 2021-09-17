@@ -4,7 +4,7 @@ from models.car import CarModel
 from schemas.car import CarSchema
 
 
-class StoreSchema(ma.SQLAlchemyAutoSchema):
+class CustomerSchema(ma.SQLAlchemyAutoSchema):
     cars = ma.Nested(CarSchema, many=True)
 
     class Meta:

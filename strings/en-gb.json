@@ -4,4 +4,9 @@
     "user_error_creating": "Internal server error. Failed to create user.",
 
     "user_not_admin": "The user is not an admin",
+
+    "customer_not_found": "There is no customer with that name",
+    "customer_error_inserting": "Could not add the customer",
+    "customer_deleted": "Customer was deleted successfully",
+    "customer_not_found": "There is no customer with that name"
 }

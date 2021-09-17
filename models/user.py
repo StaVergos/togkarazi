@@ -7,7 +7,7 @@ class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(24), nullable=False, unique=True)
     password = db.Column(db.String(24), nullable=False)
-    is_admin = db.Column(db.Boolean)
+    is_admin = db.Column(db.Boolean, nullable=False)
 
     def save_to_db(self) -> None:
         db.session.add(self)
