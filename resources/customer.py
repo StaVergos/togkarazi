@@ -1,4 +1,7 @@
+from flask import request
 from flask_restful import Resource
+
+from flask_jwt_extended import jwt_required
 
 from models.customer import CustomerModel
 from schemas.customer import CustomerSchema
@@ -11,15 +14,18 @@ customer_list_schema = CustomerSchema(many=True)
 
 class Customer(Resource):
     @classmethod
+    @jwt_required()
     def get(cls, name: str):
-        store = CustomerSchema.find_by_name(name)
-        if store:
-            return customer_schema.dump(store), 200
+        customer = CustomerSchema.find_by_name(name)
+        if customer:
+            return customer_schema.dump(customer), 200
         return {"message": gettext("customer_not_found")}, 404
 
     @classmethod
+    @jwt_required()
     def post(cls, name: str):
-        customer = CustomerModel(name=name)
+        customer_json = request.get_json()
+        customer = customer_schema.load(customer_json)
         try:
             customer.save_to_db()
         except:
@@ -28,6 +34,7 @@ class Customer(Resource):
         return customer_schema.dump(customer), 201
 
     @classmethod
+    @jwt_required()
     def delete(cls, name: str):
         customer = CustomerModel.find_by_name(name)
         if customer:
